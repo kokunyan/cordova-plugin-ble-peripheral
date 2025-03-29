@@ -36,17 +36,23 @@
         <platform name="android">
         <config-file target="res/xml/config.xml" parent="/widget">
             <feature name="BLEPeripheral">
-                <param name="android-package" value="com.megster.cordova.ble.peripheral.BLEPeripheralPlugin"/>
+                <param name="android-package" value="org.apache.cordova.ble_peripheral.BLEPeripheralPlugin"/>
             </feature>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.BLUETOOTH"/>
             <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
         </config-file>
 
-        <source-file src="src/android/BLEPeripheralPlugin.java" target-dir="src/com/megster/cordova/ble/peripheral"/>
+        <source-file src="src/android/BLEPeripheralPlugin.kt" target-dir="src/org/apache/cordova/ble_peripheral"/>
         <source-file src="src/android/UUIDHelper.java" target-dir="src/com/megster/cordova/ble/peripheral"/>
+
+        <framework src="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10" />
+        <framework src="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0" />
 
     </platform>
 
